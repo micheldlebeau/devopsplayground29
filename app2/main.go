@@ -1,18 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
+import "fmt"
 
-	"google.golang.org/appengine"
-)
-
-// Server always prints Hello DevOps Playground!
-func Server(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello DevOps Playground!")
+// Hello returns a nice hello world message
+func Hello() string {
+	return "Hello, world"
 }
 
 func main() {
-	http.HandleFunc("/", Server)
-	appengine.Main()
+	fmt.Println(Hello())
 }

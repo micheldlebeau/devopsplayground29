@@ -1,24 +1,12 @@
 package main
 
-import (
-	"net/http"
-	"net/http/httptest"
-	"testing"
-)
+import "testing"
 
-func TestServer(t *testing.T) {
-	request, _ := http.NewRequest(http.MethodGet, "/", nil)
-	response := httptest.NewRecorder()
+func TestHello(t *testing.T) {
+	got := Hello()
+	want := "Hello, world"
 
-	Server(response, request)
-
-	t.Run("Get server response", func(t *testing.T) {
-		got := response.Body.String()
-		want := "Hello DevOps Playground!"
-
-		if got != want {
-			t.Errorf("got '%s', want '%s'", got, want)
-		}
-	})
-
+	if got != want {
+		t.Errorf("got '%s' want '%s'", got, want)
+	}
 }
