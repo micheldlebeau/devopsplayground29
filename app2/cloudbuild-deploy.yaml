@@ -1,0 +1,31 @@
+steps:
+#- name: 'gcr.io/cloud-builders/go'
+#  args: ['install']
+#  env: ['PROJECT_ROOT=playground']
+#  volumes:
+#  - name: 'go'
+#    path: '/gopath'
+- name: 'gcr.io/cloud-builders/go'
+  args: ['get', 'google.golang.org/appengine']
+  env: ['GOPATH=/gopath']
+  volumes:
+  - name: 'go'
+    path: '/gopath'
+- name: 'gcr.io/cloud-builders/go'
+  args: ['build']
+  env: ['GOPATH=/gopath']
+  volumes:
+  - name: 'go'
+    path: '/gopath'
+- name: 'gcr.io/cloud-builders/go'
+  args: ['test', '-v']
+  env: ['GOPATH=/gopath']
+  volumes:
+  - name: 'go'
+    path: '/gopath'
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy']
+  env: ['GOPATH=/gopath']
+  volumes:
+  - name: 'go'
+    path: '/gopath'

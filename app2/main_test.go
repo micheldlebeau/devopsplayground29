@@ -6,15 +6,6 @@ import (
 	"testing"
 )
 
-func TestHello(t *testing.T) {
-	got := Hello()
-	want := "Hello, world"
-
-	if got != want {
-		t.Errorf("got '%s' want '%s'", got, want)
-	}
-}
-
 func TestServer(t *testing.T) {
 	request, _ := http.NewRequest(http.MethodGet, "/", nil)
 	response := httptest.NewRecorder()

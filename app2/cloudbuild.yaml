@@ -6,7 +6,7 @@ steps:
   args: ['build', 'playground']
   env: ['PROJECT_ROOT=playground']
 - name: 'gcr.io/cloud-builders/go'
-  args: ['test', 'playground']
+  args: ['test', '-v',  'playground']
   env: ['PROJECT_ROOT=playground']
 artifacts:
   objects:
